@@ -16,5 +16,10 @@ namespace GalerieSoft
         {
             InitializeComponent();
         }
+
+        private void paramètreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
