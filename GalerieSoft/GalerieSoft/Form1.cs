@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GalerieSoft
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         public Form1()
         {
@@ -27,6 +27,11 @@ namespace GalerieSoft
         {
             TypeProduit fr = new TypeProduit();
             fr.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
