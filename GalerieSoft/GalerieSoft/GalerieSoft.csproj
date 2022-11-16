@@ -52,6 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategorieProduit.cs" />
+    <Compile Include="Models\Paiement.cs" />
+    <Compile Include="Models\Produit.cs" />
+    <Compile Include="Models\TypeProduit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -83,7 +87,6 @@
     <Folder Include="Configs\" />
     <Folder Include="Data\" />
     <Folder Include="Fomes\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
