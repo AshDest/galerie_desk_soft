@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalerieSoft.Fomes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace GalerieSoft
         private void paramètreToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void typeProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TypeProduit fr = new TypeProduit();
+            fr.ShowDialog();
         }
     }
 }
