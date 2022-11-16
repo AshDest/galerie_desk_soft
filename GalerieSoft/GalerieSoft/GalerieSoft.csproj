@@ -53,9 +53,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CategorieProduit.cs" />
+    <Compile Include="Models\Detailvente.cs" />
     <Compile Include="Models\Paiement.cs" />
     <Compile Include="Models\Produit.cs" />
     <Compile Include="Models\TypeProduit.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Vente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
