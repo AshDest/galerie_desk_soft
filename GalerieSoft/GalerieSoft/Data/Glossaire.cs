@@ -126,22 +126,22 @@ namespace GalerieSoft.Data
             }
         }
 
-        public void ActionVente(Vente vt, int action)
+        public void ActionVente(Detailvente vt, int action)
         {
             InitializeConnexion();
             using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
             {
                 cmd.CommandText = "sp_merge_vente";
                 cmd.CommandType = CommandType.StoredProcedure;
-                SetParameter(cmd, "@code", DbType.String, 50, ap.Code);
-                SetParameter(cmd, "@datevente", DbType.String, 50, ap.Produit);
-                SetParameter(cmd, "@nomclient", DbType.String, 50, ap.Qte);
-                SetParameter(cmd, "@numclient", DbType.String, 50, ap.Pu);
-                SetParameter(cmd, "@produit", DbType.String, 50, ap.Produit);
-                SetParameter(cmd, "@quantite", DbType.String, 50, ap.Qte);
-                SetParameter(cmd, "@prix", DbType.String, 50, ap.Pu);
-                SetParameter(cmd, "@totalpaie", DbType.String, 50, ap.Produit);
-                SetParameter(cmd, "@situation", DbType.String, 50, ap.Qte);
+                SetParameter(cmd, "@code", DbType.String, 100, vt.Code);
+                SetParameter(cmd, "@datevente", DbType.Date, 50, vt.DateVente);
+                SetParameter(cmd, "@nomclient", DbType.String, 50, vt.NomClient);
+                SetParameter(cmd, "@numclient", DbType.String, 50, vt.NumClient);
+                SetParameter(cmd, "@produit", DbType.String, 50, vt.Produit);
+                SetParameter(cmd, "@quantite", DbType.Int32, 50, vt.Quantite);
+                SetParameter(cmd, "@prix", DbType.Double, 50, vt.PrixU);
+                SetParameter(cmd, "@totalpaie", DbType.Double, 50, vt.TotalPaie);
+                SetParameter(cmd, "@situation", DbType.String, 50, vt.Situation);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();
             }
