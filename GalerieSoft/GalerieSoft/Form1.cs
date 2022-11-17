@@ -38,5 +38,11 @@ namespace GalerieSoft
         {
             Application.Exit();
         }
+
+        private void produitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListProduit fr = new ListProduit();
+            fr.ShowDialog();
+        }
     }
 }
