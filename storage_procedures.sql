@@ -54,7 +54,7 @@ as
 if(@action = 1)
 begin
 	if not exists (select * from tProduit where Id = @id)
-		insert into tProduit (Code, Designation, TypeProduit, CategorieProduit, Prix) values (@code, @designation, @typeproduit, @categorie, @categorie)
+		insert into tProduit (Code, Designation, TypeProduit, CategorieProduit, Prix) values (@code, @designation, @typeproduit, @categorie, @prix)
 	else update tProduit set Designation = @designation, TypeProduit = @typeproduit, CategorieProduit = @categorie, Prix = @prix where Id = @id
 end
 else if(@action = 2)

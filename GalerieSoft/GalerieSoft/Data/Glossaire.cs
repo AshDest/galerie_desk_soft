@@ -156,9 +156,9 @@ namespace GalerieSoft.Data
                 cmd.CommandType = CommandType.StoredProcedure;
                 SetParameter(cmd, "@code", DbType.String, 50, p.Code);
                 SetParameter(cmd, "@designation", DbType.String, 50, p.Designation);
-                SetParameter(cmd, "@typeproduit", DbType.String, 50, p.Typeproduit);
-                SetParameter(cmd, "@categorie", DbType.String, 50, p.Categorieproduit);
-                SetParameter(cmd, "@prix", DbType.String, 50, p.Prix);
+                SetParameter(cmd, "@typeproduit", DbType.Int32, 50, p.Typeproduit);
+                SetParameter(cmd, "@categorie", DbType.Int32, 50, p.Categorieproduit);
+                SetParameter(cmd, "@prix", DbType.Double, 50, p.Prix);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();
             }

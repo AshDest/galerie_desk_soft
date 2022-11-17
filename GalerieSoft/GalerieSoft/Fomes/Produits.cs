@@ -33,7 +33,54 @@ namespace GalerieSoft.Fomes
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (IsNotEmpty(1))
+                {
+                    produit = new Produit
+                    {
+                        Code = txtCode.Text,
+                        Designation = txtDesignation.Text,
+                        Typeproduit = _idType,
+                        Categorieproduit = _idCategorie,
+                        Prix = float.Parse(txtPrix.Text)
+                    };
+                    Glossaire.Instance.Produits(produit, 1);
+                    RestAllFiels();
+                    MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Certain champ du formulaire sont obligatoire", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur s'est produite lors de l'Enregistrement : " + ex.Message, "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void RestAllFiels()
+        {
+            txtCode.Text = "";
+            txtDesignation.Text = "";
+            txtPrix.Text = "";
+            _initCmbState = false;
+        }
+
+        private bool IsNotEmpty(int rank)
+        {
+            if (rank == 1)
+            {
+                if (!string.IsNullOrEmpty(txtCode.Text) && !string.IsNullOrEmpty(txtDesignation.Text) && !string.IsNullOrEmpty(txtPrix.Text))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)

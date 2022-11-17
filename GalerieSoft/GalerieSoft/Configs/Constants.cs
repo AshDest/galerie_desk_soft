@@ -13,7 +13,7 @@ namespace GalerieSoft.Configs
             public const string TYPE_PRODUIT = "tTypeProduit";
             public const string CATEGORIE_PRODUIT = "tCategorie";
             public const string APPROVISIONNEMENT = "tGarage";
-            public const string PRODUITS = "tChauffeur";
+            public const string PRODUITS = "tProduit";
             public const string PAIEMENT = "tVehicule";
             public const string VENTE = "tEntretient";
             public const string DETAILVENTE = "tMvm_Entretient";
@@ -22,7 +22,7 @@ namespace GalerieSoft.Configs
 
         public class Views
         {
-            public const string V_LIST_VEHICULE = "v_List_vehicule";
+            public const string V_LIST_PRODUITS = "v_list_produit";
             public const string V_LISTE_ENTRETIENS = "v_ListeEntretient";
             public const string V_LIST_PRELEVEMENT = "v_list_Prelevement";
             public const string V_LIST_HOME_DATA = "v_home_data";

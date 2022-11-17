@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDesignation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPrix = new System.Windows.Forms.TextBox();
             this.cmbType = new MetroFramework.Controls.MetroComboBox();
             this.cmbCategorie = new MetroFramework.Controls.MetroComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.txtPrix = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtCode
@@ -86,14 +86,6 @@
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Prix Unitaire";
-            // 
-            // txtPrix
-            // 
-            this.txtPrix.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrix.Location = new System.Drawing.Point(28, 220);
-            this.txtPrix.Name = "txtPrix";
-            this.txtPrix.Size = new System.Drawing.Size(199, 23);
-            this.txtPrix.TabIndex = 4;
             // 
             // cmbType
             // 
@@ -147,18 +139,29 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // txtPrix
+            // 
+            this.txtPrix.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrix.Location = new System.Drawing.Point(28, 223);
+            this.txtPrix.Mask = "000000000000";
+            this.txtPrix.Name = "txtPrix";
+            this.txtPrix.PromptChar = ' ';
+            this.txtPrix.Size = new System.Drawing.Size(356, 26);
+            this.txtPrix.TabIndex = 11;
+            this.txtPrix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Produits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 464);
+            this.Controls.Add(this.txtPrix);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPrix);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDesignation);
             this.Controls.Add(this.label1);
@@ -175,17 +178,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDesignation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPrix;
-        private MetroFramework.Controls.MetroComboBox cmbType;
-        private MetroFramework.Controls.MetroComboBox cmbCategorie;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private MetroFramework.Controls.MetroButton metroButton1;
+        public System.Windows.Forms.MaskedTextBox txtPrix;
+        public System.Windows.Forms.TextBox txtCode;
+        public System.Windows.Forms.TextBox txtDesignation;
+        public MetroFramework.Controls.MetroComboBox cmbType;
+        public MetroFramework.Controls.MetroComboBox cmbCategorie;
     }
 }
