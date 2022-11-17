@@ -68,7 +68,61 @@ namespace GalerieSoft.Data
         }
         #endregion
 
-        public void Type_Produit(TypeProduit tp, int action)
+        public DataTable LoadGrid(string table, string orderBy)
+        {
+            InitializeConnexion();
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM " + table + " ORDER BY " + orderBy + " DESC";
+                DataTable dt = new DataTable();
+                adapter = new SqlDataAdapter((SqlCommand)cmd);
+                adapter.Fill(dt);
+
+                return dt;
+            }
+        }
+        public List<string> LoadString(string field, string table)
+        {
+            InitializeConnexion();
+
+            List<string> list = new List<string>();
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT " + field + " FROM " + table + " ORDER BY " + field + " ";
+
+                IDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    list.Add(dr[field].ToString());
+                }
+                dr.Dispose();
+            }
+            return list;
+        }
+        public int SelectId(string table, string field, string refer)
+        {
+            InitializeConnexion();
+
+            int id = 0;
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT Id FROM " + table + " WHERE " + refer + " = '" + field + "'";
+                IDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    id = Convert.ToInt32(dr["Id"].ToString());
+                }
+
+                dr.Dispose();
+            }
+            return id;
+        }
+
+        public void Type_Produit(TypeProduits tp, int action)
         {
             InitializeConnexion();
             using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
@@ -80,7 +134,7 @@ namespace GalerieSoft.Data
                 cmd.ExecuteNonQuery();
             }
         }
-        public void Categorie_Produit(CategorieProduit cat, int action)
+        public void Categorie_Produit(CategorieProduits cat, int action)
         {
             InitializeConnexion();
             using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GalerieSoft.Models
 {
-    public class CategorieProduit
+    public class CategorieProduits
     {
         public int Id { get; set; }
         public string Designation { get; set; }

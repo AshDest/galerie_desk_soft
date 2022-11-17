@@ -104,6 +104,7 @@
             this.cmbType.Size = new System.Drawing.Size(356, 29);
             this.cmbType.TabIndex = 6;
             this.cmbType.UseSelectable = true;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // cmbCategorie
             // 
@@ -114,6 +115,7 @@
             this.cmbCategorie.Size = new System.Drawing.Size(356, 29);
             this.cmbCategorie.TabIndex = 7;
             this.cmbCategorie.UseSelectable = true;
+            this.cmbCategorie.SelectedIndexChanged += new System.EventHandler(this.cmbCategorie_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -143,6 +145,7 @@
             this.metroButton1.TabIndex = 10;
             this.metroButton1.Text = "Enregistrer";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // Produits
             // 

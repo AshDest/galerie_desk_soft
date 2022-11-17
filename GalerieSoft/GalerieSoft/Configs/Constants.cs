@@ -10,8 +10,8 @@ namespace GalerieSoft.Configs
     {
         public class Tables
         {
-            public const string TYPE_PRODUIT = "tType_Vehicule";
-            public const string CATEGORIE_PRODUIT = "tSection";
+            public const string TYPE_PRODUIT = "tTypeProduit";
+            public const string CATEGORIE_PRODUIT = "tCategorie";
             public const string APPROVISIONNEMENT = "tGarage";
             public const string PRODUITS = "tChauffeur";
             public const string PAIEMENT = "tVehicule";

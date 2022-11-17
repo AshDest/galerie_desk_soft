@@ -212,6 +212,7 @@
             this.categorieProduitToolStripMenuItem.Name = "categorieProduitToolStripMenuItem";
             this.categorieProduitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.categorieProduitToolStripMenuItem.Text = "Categorie Produit";
+            this.categorieProduitToolStripMenuItem.Click += new System.EventHandler(this.categorieProduitToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 

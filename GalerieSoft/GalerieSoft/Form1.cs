@@ -61,5 +61,11 @@ namespace GalerieSoft
             ListProduit fr = new ListProduit();
             fr.ShowDialog();
         }
+
+        private void categorieProduitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategorieProduit fr = new CategorieProduit();
+            fr.ShowDialog();
+        }
     }
 }
