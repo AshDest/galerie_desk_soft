@@ -58,6 +58,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\App.cs" />
+    <Compile Include="Configs\Connection.cs" />
+    <Compile Include="Configs\Constants.cs" />
+    <Compile Include="Configs\ImplementeConnection.cs" />
+    <Compile Include="Data\Glossaire.cs" />
+    <Compile Include="Fomes\Approvisionnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\Approvisionnement.Designer.cs">
+      <DependentUpon>Approvisionnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fomes\CategorieProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\CategorieProduit.Designer.cs">
+      <DependentUpon>CategorieProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fomes\Produits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\Produits.Designer.cs">
+      <DependentUpon>Produits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fomes\TypeProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +102,15 @@
     <Compile Include="Models\Vente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Fomes\Approvisionnement.resx">
+      <DependentUpon>Approvisionnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fomes\CategorieProduit.resx">
+      <DependentUpon>CategorieProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fomes\Produits.resx">
+      <DependentUpon>Produits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fomes\TypeProduit.resx">
       <DependentUpon>TypeProduit.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,10 +140,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configs\" />
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
