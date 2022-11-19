@@ -111,6 +111,7 @@
             this.approvisionnementToolStripMenuItem.Name = "approvisionnementToolStripMenuItem";
             this.approvisionnementToolStripMenuItem.Size = new System.Drawing.Size(153, 21);
             this.approvisionnementToolStripMenuItem.Text = "Approvisionnement";
+            this.approvisionnementToolStripMenuItem.Click += new System.EventHandler(this.approvisionnementToolStripMenuItem_Click);
             // 
             // financeToolStripMenuItem
             // 

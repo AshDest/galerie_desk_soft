@@ -122,6 +122,28 @@ namespace GalerieSoft.Data
             return id;
         }
 
+        public string SelectString(string table, string field, string refer)
+        {
+            InitializeConnexion();
+
+            string code = null;
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT Code FROM " + table + " WHERE " + refer + " = '" + field + "'";
+                IDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    code = dr["Code"].ToString();
+                }
+
+                dr.Dispose();
+            }
+            return code;
+        }
+
+
         public void Type_Produit(TypeProduits tp, int action)
         {
             InitializeConnexion();

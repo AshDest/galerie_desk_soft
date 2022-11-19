@@ -67,5 +67,11 @@ namespace GalerieSoft
             CategorieProduit fr = new CategorieProduit();
             fr.ShowDialog();
         }
+
+        private void approvisionnementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Approvisionnement fr = new Approvisionnement();
+            fr.ShowDialog();
+        }
     }
 }
