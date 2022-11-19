@@ -143,6 +143,21 @@ namespace GalerieSoft.Data
             return code;
         }
 
+        public DataTable LoadGridWhere(string table, string field, string where)
+        {
+            InitializeConnexion();
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM " + table + " WHERE " + field + " = '" + where + "'";
+                DataTable dt = new DataTable();
+                adapter = new SqlDataAdapter((SqlCommand)cmd);
+                adapter.Fill(dt);
+
+                return dt;
+            }
+        }
+
 
         public void Type_Produit(TypeProduits tp, int action)
         {

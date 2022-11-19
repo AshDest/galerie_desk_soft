@@ -18,6 +18,7 @@ namespace GalerieSoft.Fomes
         private string _codeProduit = null;
         private bool _initCmbState = false;
         private Approvisionnements appro = null;
+
         public Approvisionnement()
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace GalerieSoft.Fomes
 
         private void Approvisionnement_Load(object sender, EventArgs e)
         {
+            txtDate.Format = DateTimePickerFormat.Custom;
+            txtDate.CustomFormat = "yyyy-MM-dd";
             cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
+            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LISTE_APPROVISIONNEMENT, "DateApprov", txtDate.Text);
             _initCmbState = true;
         }
 

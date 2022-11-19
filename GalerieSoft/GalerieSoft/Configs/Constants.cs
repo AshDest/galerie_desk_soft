@@ -23,7 +23,7 @@ namespace GalerieSoft.Configs
         public class Views
         {
             public const string V_LIST_PRODUITS = "v_list_produit";
-            public const string V_LISTE_ENTRETIENS = "v_ListeEntretient";
+            public const string V_LISTE_APPROVISIONNEMENT = "v_list_approvisionnement";
             public const string V_LIST_PRELEVEMENT = "v_list_Prelevement";
             public const string V_LIST_HOME_DATA = "v_home_data";
             public const string V_LIST_FALSE_VEHICULE = "v_list_false_vehicule";
