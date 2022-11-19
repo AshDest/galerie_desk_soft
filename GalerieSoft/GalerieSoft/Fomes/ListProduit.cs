@@ -40,7 +40,7 @@ namespace GalerieSoft.Fomes
             fr.cmbCategorie.Text = this.dataGrid.CurrentRow.Cells[3].Value.ToString();
             fr.txtPrix.Text = this.dataGrid.CurrentRow.Cells[5].Value.ToString();
             fr.ShowDialog();
-            this.dataGrid.CurrentRow.Cells[1].Value.ToString();
+            dataGrid.DataSource = Glossaire.Instance.LoadGrid(Constants.Views.V_LIST_PRODUITS, "Code");
         }
     }
 }
