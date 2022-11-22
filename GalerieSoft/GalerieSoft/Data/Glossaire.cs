@@ -225,7 +225,6 @@ namespace GalerieSoft.Data
                 cmd.CommandText = "sp_merge_vente";
                 cmd.CommandType = CommandType.StoredProcedure;
                 SetParameter(cmd, "@code", DbType.String, 100, vt.Code);
-                SetParameter(cmd, "@datevente", DbType.Date, 50, vt.DateVente);
                 SetParameter(cmd, "@nomclient", DbType.String, 50, vt.NomClient);
                 SetParameter(cmd, "@numclient", DbType.String, 50, vt.NumClient);
                 SetParameter(cmd, "@produit", DbType.String, 50, vt.Produit);

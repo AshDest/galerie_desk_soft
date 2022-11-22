@@ -66,7 +66,6 @@ go
 create procedure sp_merge_vente
 (
 	@code varchar(100),
-	@datevente date,
 	@nomclient varchar(20),
 	@numclient varchar(15),
 	@produit varchar(100),
@@ -88,16 +87,18 @@ as
 if(@action = 1) -- Insert and update vente
 begin
 	if not exists (select * from tVente where Code = @code)
-		insert into tVente(Code, DateVente) values (@code, @datevente)
-	else update tVente set DateVente = @datevente where Code = @code
+		insert into tVente(Code, DateVente) values (@code, GETDATE())
+	else update tVente set Code = @code where Code = @code
 end
 else if(@action = 2) -- insert detailvente
 begin
 	insert into tDetailVente (CodeVente, Produit, Quantite, Pu, Pt) values (@code, @produit, @quantite, @current_pu, (@quantite * @current_pu))
+	update tVente set Total = @current_total
 end
 else if(@action = 3) -- update detail vente
 begin
 	update tDetailVente set Produit = @produit, Quantite = @quantite, Pu = @current_pu, Pt = (@quantite * @current_pu)
+	update tVente set Total = @current_total
 end
 else if(@action = 4) -- set total price on tVente
 begin

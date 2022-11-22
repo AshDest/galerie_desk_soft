@@ -10,7 +10,7 @@ namespace GalerieSoft.Models
     {
         public int Id { get; set; }
         public string Produit { get; set; }
-        public int Quantite { get; set; }
+        public decimal Quantite { get; set; }
         public float PrixU { get; set; }
         public float PrixTot { get; set; }
     }
