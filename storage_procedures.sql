@@ -91,7 +91,7 @@ begin
 end
 else if(@action = 2) -- insert detailvente
 begin
-	if not exists (select * from tDetailVente where Produit = @produit)
+	if not exists (select * from tDetailVente where Produit = @produit and CodeVente = @current_code)
 		insert into tDetailVente (CodeVente, Produit, Quantite, Pu, Pt) values (@current_code, @produit, @quantite, @current_pu, (@quantite * @current_pu));
 	update tVente set Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code) where Code = @current_code
 end
@@ -102,7 +102,8 @@ begin
 end
 else if(@action = 4) -- set total price on tVente
 begin
-	update tVente set Nom_Client = @nomclient, Num_Client = @numclient, Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code), Situation = @situation where Code = @current_code
+	update tVente set Nom_Client = @nomclient, Num_Client = @numclient, Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code), 
+	TotalPaie = @totalpaie, RestePaie = (Total - (select Sum(Pt) from tDetailVente where CodeVente= @current_code)), Situation = @situation where Code = @current_code
 end
 else if(@action = 5 and @situation = 1)
 begin

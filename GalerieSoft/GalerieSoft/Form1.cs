@@ -144,6 +144,7 @@ namespace GalerieSoft
             else
             {
                 txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
+                gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
                 txtPrixTot.Text = "FC";
             }
 
@@ -168,6 +169,7 @@ namespace GalerieSoft
             {
                 fr.ShowDialog();
             }
+            resetFields(2);
         }
     }
 }
