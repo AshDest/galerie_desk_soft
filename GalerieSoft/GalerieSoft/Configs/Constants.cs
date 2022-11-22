@@ -15,7 +15,7 @@ namespace GalerieSoft.Configs
             public const string APPROVISIONNEMENT = "tGarage";
             public const string PRODUITS = "tProduit";
             public const string PAIEMENT = "tVehicule";
-            public const string VENTE = "tEntretient";
+            public const string VENTE = "tVente";
             public const string DETAILVENTE = "tMvm_Entretient";
             //public const string DETAIL_ENTRETIENT = "DetailEntretient";
         }

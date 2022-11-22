@@ -51,6 +51,7 @@ namespace GalerieSoft
                 ImplementeConnection.Instance.Con.Open();
 
                 cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
+                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
                 _initCmbState = true;
             }
             catch(Exception ex)
@@ -140,7 +141,7 @@ namespace GalerieSoft
             }
             else
             {
-                txtCodeVente.Text = "";
+                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
                 txtPrixTot.Text = "FC";
             }
 

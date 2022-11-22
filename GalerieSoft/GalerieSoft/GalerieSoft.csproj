@@ -79,6 +79,12 @@
     <Compile Include="Fomes\CategorieProduit.Designer.cs">
       <DependentUpon>CategorieProduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fomes\InfoVente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\InfoVente.Designer.cs">
+      <DependentUpon>InfoVente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fomes\ListProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\CategorieProduit.resx">
       <DependentUpon>CategorieProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fomes\InfoVente.resx">
+      <DependentUpon>InfoVente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\ListProduit.resx">
       <DependentUpon>ListProduit.cs</DependentUpon>

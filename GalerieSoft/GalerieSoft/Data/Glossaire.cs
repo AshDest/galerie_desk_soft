@@ -180,6 +180,27 @@ namespace GalerieSoft.Data
             }
         }
 
+        public int Nouveau(string table)
+        {
+            int id = 0;
+
+            InitializeConnexion();
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT COUNT(*) as lastId FROM " + table;
+
+                IDataReader rd = cmd.ExecuteReader();
+
+                if (rd.Read())
+                {
+                    id = Convert.ToInt32(rd["lastId"].ToString()) + 1;
+                }
+
+                rd.Dispose();
+            }
+            return id;
+        }
+
 
         public void Type_Produit(TypeProduits tp, int action)
         {
