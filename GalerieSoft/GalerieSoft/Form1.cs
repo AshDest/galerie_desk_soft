@@ -100,8 +100,10 @@ namespace GalerieSoft
                     };
                     Glossaire.Instance.ActionVente(vente, 1);
                     Glossaire.Instance.ActionVente(vente, 2);
-                    //RestAllFiels();
+                    resetFields(1);
                     MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
+                    txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
                 }
                 else
                 {
@@ -126,6 +128,22 @@ namespace GalerieSoft
             {
                 return false;
             }
+        }
+
+        private void resetFields(int var)
+        {
+            if (var == 1)
+            {
+                txtCode.Text = "";
+                cmbProduit.Text = "";
+                txtQte.Value = 1;
+            }
+            else
+            {
+                txtCodeVente.Text = "";
+                txtPrixTot.Text = "FC";
+            }
+
         }
 
         private void cmbProduit_SelectedIndexChanged(object sender, EventArgs e)

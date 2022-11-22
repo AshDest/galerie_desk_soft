@@ -122,6 +122,28 @@ namespace GalerieSoft.Data
             return id;
         }
 
+        public string SelectTotalValue(string field)
+        {
+            InitializeConnexion();
+
+            string tot = null;
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT Total FROM tVente WHERE Code = '" + field + "'";
+                IDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    tot = dr["Total"].ToString();
+                }
+
+                dr.Dispose();
+            }
+            return tot;
+        }
+
+
         public string SelectString(string table, string field, string refer)
         {
             InitializeConnexion();
