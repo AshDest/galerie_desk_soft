@@ -17,6 +17,7 @@ namespace GalerieSoft
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         private string _codeProduit = null;
+        private string _prixtotal = null;
         private bool _initCmbState = false;
         private ConnexionType connexionType;
         private Detailvente vente = null;
@@ -104,6 +105,7 @@ namespace GalerieSoft
                     resetFields(1);
                     MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
+                    _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
                     txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
                 }
                 else
@@ -157,6 +159,14 @@ namespace GalerieSoft
             else
             {
                 cmbProduit.SelectedIndex = -1;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (InfoVente fr = new InfoVente(string.Format("{0}", txtCodeVente.Text), string.Format(_prixtotal)))
+            {
+                fr.ShowDialog();
             }
         }
     }

@@ -22,7 +22,7 @@ namespace GalerieSoft.Fomes
 
         private void InfoVente_Load(object sender, EventArgs e)
         {
-
+            txtMontantDue.Text = _total;
         }
     }
 }

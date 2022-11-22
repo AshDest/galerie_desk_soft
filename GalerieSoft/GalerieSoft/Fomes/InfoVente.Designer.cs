@@ -36,6 +36,7 @@
             this.txtMontant = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.txtMontantDue = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtNom
@@ -112,7 +113,7 @@
             // txtMontant
             // 
             this.txtMontant.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontant.Location = new System.Drawing.Point(252, 162);
+            this.txtMontant.Location = new System.Drawing.Point(162, 162);
             this.txtMontant.Mask = "0000000000000";
             this.txtMontant.Name = "txtMontant";
             this.txtMontant.PromptChar = ' ';
@@ -125,7 +126,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(411, 165);
+            this.label4.Location = new System.Drawing.Point(321, 165);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 20);
             this.label4.TabIndex = 8;
@@ -140,11 +141,24 @@
             this.metroButton1.Text = "Enregistrer";
             this.metroButton1.UseSelectable = true;
             // 
+            // txtMontantDue
+            // 
+            this.txtMontantDue.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMontantDue.Location = new System.Drawing.Point(355, 162);
+            this.txtMontantDue.Mask = "0000000000000";
+            this.txtMontantDue.Name = "txtMontantDue";
+            this.txtMontantDue.PromptChar = ' ';
+            this.txtMontantDue.Size = new System.Drawing.Size(131, 26);
+            this.txtMontantDue.TabIndex = 10;
+            this.txtMontantDue.Text = "0";
+            this.txtMontantDue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // InfoVente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 283);
+            this.Controls.Add(this.txtMontantDue);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMontant);
@@ -153,7 +167,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNom);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InfoVente";
+            this.Resizable = false;
             this.Text = "Information sur la vente";
             this.Load += new System.EventHandler(this.InfoVente_Load);
             this.ResumeLayout(false);
@@ -171,5 +188,6 @@
         private System.Windows.Forms.MaskedTextBox txtMontant;
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.MaskedTextBox txtMontantDue;
     }
 }
