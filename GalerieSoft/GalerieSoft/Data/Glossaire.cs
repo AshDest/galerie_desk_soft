@@ -229,7 +229,6 @@ namespace GalerieSoft.Data
                 SetParameter(cmd, "@numclient", DbType.String, 50, vt.NumClient);
                 SetParameter(cmd, "@produit", DbType.String, 50, vt.Produit);
                 SetParameter(cmd, "@quantite", DbType.Int32, 50, vt.Quantite);
-                SetParameter(cmd, "@prix", DbType.Double, 50, vt.PrixU);
                 SetParameter(cmd, "@totalpaie", DbType.Double, 50, vt.TotalPaie);
                 SetParameter(cmd, "@situation", DbType.String, 50, vt.Situation);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);

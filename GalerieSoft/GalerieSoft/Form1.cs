@@ -91,10 +91,15 @@ namespace GalerieSoft
                     vente = new Detailvente
                     {
                         Code = txtCodeVente.Text,
+                        NomClient = null,
+                        NumClient = null,
+                        TotalPaie = 0,
+                        Situation = 1,
                         Produit = _codeProduit,
                         Quantite = txtQte.Value
                     };
                     Glossaire.Instance.ActionVente(vente, 1);
+                    Glossaire.Instance.ActionVente(vente, 2);
                     //RestAllFiels();
                     MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
