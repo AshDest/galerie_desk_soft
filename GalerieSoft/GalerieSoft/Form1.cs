@@ -1,4 +1,5 @@
 ﻿using GalerieSoft.Configs;
+using GalerieSoft.Data;
 using GalerieSoft.Fomes;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace GalerieSoft
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
+        private string _codeProduit = null;
+        private bool _initCmbState = false;
         private ConnexionType connexionType;
         public Form1()
         {
@@ -44,6 +47,9 @@ namespace GalerieSoft
 
                 ImplementeConnection.Instance.Initialise(connexion, connexionType);
                 ImplementeConnection.Instance.Con.Open();
+
+                cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
+                _initCmbState = true;
             }
             catch(Exception ex)
             {
@@ -72,6 +78,24 @@ namespace GalerieSoft
         {
             Approvisionnement fr = new Approvisionnement();
             fr.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbProduit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_initCmbState)
+            {
+                _codeProduit = Glossaire.Instance.SelectString(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
+                txtCode.Text = _codeProduit;
+            }
+            else
+            {
+                cmbProduit.SelectedIndex = -1;
+            }
         }
     }
 }
