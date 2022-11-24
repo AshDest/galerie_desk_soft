@@ -23,26 +23,26 @@ namespace GalerieSoft.Fomes
 
         private void ListProduit_Load(object sender, EventArgs e)
         {
-            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Tables.PRODUITS, "Depot", _depot);
+            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_PRODUITS, "Depot", _depot);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Produits fr = new Produits();
+            Produits fr = new Produits(_depot);
             fr.ShowDialog();
-            dataGrid.DataSource = Glossaire.Instance.LoadGrid(Constants.Views.V_LIST_PRODUITS, "Code");
+            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_PRODUITS, "Depot", _depot);
         }
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Produits fr = new Produits();
+            Produits fr = new Produits(_depot);
             fr.txtCode.Text = this.dataGrid.CurrentRow.Cells[0].Value.ToString();
             fr.txtDesignation.Text = this.dataGrid.CurrentRow.Cells[1].Value.ToString();
             fr.cmbType.Text = this.dataGrid.CurrentRow.Cells[2].Value.ToString();
-            fr.cmbCategorie.Text = this.dataGrid.CurrentRow.Cells[3].Value.ToString();
+            //fr.cmbCategorie.Text = this.dataGrid.CurrentRow.Cells[3].Value.ToString();
             fr.txtPrix.Text = this.dataGrid.CurrentRow.Cells[5].Value.ToString();
             fr.ShowDialog();
-            dataGrid.DataSource = Glossaire.Instance.LoadGrid(Constants.Views.V_LIST_PRODUITS, "Code");
+            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_PRODUITS, "Depot", _depot);
         }
     }
 }

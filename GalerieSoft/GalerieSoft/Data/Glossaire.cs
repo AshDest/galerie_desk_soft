@@ -237,7 +237,7 @@ namespace GalerieSoft.Data
                 SetParameter(cmd, "@code", DbType.String, 50, p.Code);
                 SetParameter(cmd, "@designation", DbType.String, 50, p.Designation);
                 SetParameter(cmd, "@typeproduit", DbType.Int32, 50, p.Typeproduit);
-                SetParameter(cmd, "@categorie", DbType.Int32, 50, p.Categorieproduit);
+                SetParameter(cmd, "@depot", DbType.Int32, 50, p.Depo);
                 SetParameter(cmd, "@prix", DbType.Double, 50, p.Prix);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();

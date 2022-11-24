@@ -19,16 +19,34 @@ namespace GalerieSoft.Fomes
         private int _idCategorie = 0;
         private int _idType = 0;
         private bool _initCmbState = false;
-        public Produits()
+
+        string _depot;
+        public Produits(string depot)
         {
+            _depot = depot;
             InitializeComponent();
         }
 
         private void Produits_Load(object sender, EventArgs e)
         {
-            cmbCategorie.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.CATEGORIE_PRODUIT);
+            //cmbCategorie.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.CATEGORIE_PRODUIT);
             cmbType.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.TYPE_PRODUIT);
             _initCmbState = true;
+            switch (_depot)
+            {
+                case "1":
+                    txtDepot.Text = "DEPOT BEAUF";
+                    break;
+                case "2":
+                    txtDepot.Text = "DEPOT DAFOKO";
+                    break;
+                case "3":
+                    txtDepot.Text = "DEPOT SHEKINAH";
+                    break;
+                default:
+                    txtDepot.Text = "";
+                    break;
+            }
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -42,7 +60,7 @@ namespace GalerieSoft.Fomes
                         Code = txtCode.Text,
                         Designation = txtDesignation.Text,
                         Typeproduit = _idType,
-                        Categorieproduit = _idCategorie,
+                        Depo = int.Parse(_depot),
                         Prix = float.Parse(txtPrix.Text)
                     };
                     Glossaire.Instance.Produits(produit, 1);
@@ -97,14 +115,14 @@ namespace GalerieSoft.Fomes
 
         private void cmbCategorie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_initCmbState)
-            {
-                _idCategorie = Glossaire.Instance.SelectId(Constants.Tables.CATEGORIE_PRODUIT, cmbCategorie.Text, "Designation");
-            }
-            else
-            {
-                cmbCategorie.SelectedIndex = -1;
-            }
+            //if (_initCmbState)
+            //{
+            //    _idCategorie = Glossaire.Instance.SelectId(Constants.Tables.CATEGORIE_PRODUIT, cmbCategorie.Text, "Designation");
+            //}
+            //else
+            //{
+            //    cmbCategorie.SelectedIndex = -1;
+            //}
         }
     }
 }

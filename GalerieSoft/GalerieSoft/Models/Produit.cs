@@ -15,5 +15,6 @@ namespace GalerieSoft.Models
         public int Categorieproduit { get; set; }
         public int Quantite { get; set; }
         public float Prix { get; set; }
+        public int Depo { get; set; }
     }
 }

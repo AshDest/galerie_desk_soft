@@ -34,11 +34,11 @@
             this.txtDesignation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbType = new MetroFramework.Controls.MetroComboBox();
-            this.cmbCategorie = new MetroFramework.Controls.MetroComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.txtPrix = new System.Windows.Forms.MaskedTextBox();
+            this.txtDepot = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtCode
@@ -98,17 +98,6 @@
             this.cmbType.UseSelectable = true;
             this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
-            // cmbCategorie
-            // 
-            this.cmbCategorie.FormattingEnabled = true;
-            this.cmbCategorie.ItemHeight = 23;
-            this.cmbCategorie.Location = new System.Drawing.Point(28, 354);
-            this.cmbCategorie.Name = "cmbCategorie";
-            this.cmbCategorie.Size = new System.Drawing.Size(356, 29);
-            this.cmbCategorie.TabIndex = 7;
-            this.cmbCategorie.UseSelectable = true;
-            this.cmbCategorie.SelectedIndexChanged += new System.EventHandler(this.cmbCategorie_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -125,9 +114,9 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(28, 325);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 17);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Categorie produit";
+            this.label5.Text = "Dépot";
             // 
             // metroButton1
             // 
@@ -150,16 +139,24 @@
             this.txtPrix.TabIndex = 11;
             this.txtPrix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // txtDepot
+            // 
+            this.txtDepot.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepot.Location = new System.Drawing.Point(28, 355);
+            this.txtDepot.Name = "txtDepot";
+            this.txtDepot.Size = new System.Drawing.Size(356, 23);
+            this.txtDepot.TabIndex = 12;
+            // 
             // Produits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 464);
+            this.Controls.Add(this.txtDepot);
             this.Controls.Add(this.txtPrix);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -188,6 +185,6 @@
         public System.Windows.Forms.TextBox txtCode;
         public System.Windows.Forms.TextBox txtDesignation;
         public MetroFramework.Controls.MetroComboBox cmbType;
-        public MetroFramework.Controls.MetroComboBox cmbCategorie;
+        public System.Windows.Forms.TextBox txtDepot;
     }
 }
