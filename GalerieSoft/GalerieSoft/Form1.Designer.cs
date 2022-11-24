@@ -216,6 +216,7 @@
             this.typeProduitToolStripMenuItem.Name = "typeProduitToolStripMenuItem";
             this.typeProduitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.typeProduitToolStripMenuItem.Text = "Type Produit";
+            this.typeProduitToolStripMenuItem.Visible = false;
             this.typeProduitToolStripMenuItem.Click += new System.EventHandler(this.typeProduitToolStripMenuItem_Click);
             // 
             // categorieProduitToolStripMenuItem
@@ -224,6 +225,7 @@
             this.categorieProduitToolStripMenuItem.Name = "categorieProduitToolStripMenuItem";
             this.categorieProduitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.categorieProduitToolStripMenuItem.Text = "Categorie Produit";
+            this.categorieProduitToolStripMenuItem.Visible = false;
             this.categorieProduitToolStripMenuItem.Click += new System.EventHandler(this.categorieProduitToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem

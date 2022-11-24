@@ -32,8 +32,8 @@ namespace GalerieSoft.Fomes
         {
             try
             {
-                cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
-                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
+                cmbProduit.DataSource = Glossaire.Instance.LoadStringWere("Designation", Constants.Tables.PRODUITS, _depot);
+                txtCodeVente.Text = "DP0200" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE, _depot).ToString();
                 _initCmbState = true;
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace GalerieSoft.Fomes
             }
             else
             {
-                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
+                txtCodeVente.Text = "DEP0200" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE, _depot).ToString();
                 gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
                 txtPrixTot.Text = "FC";
             }

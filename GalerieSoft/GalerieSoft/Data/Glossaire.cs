@@ -101,6 +101,27 @@ namespace GalerieSoft.Data
             }
             return list;
         }
+
+        public List<string> LoadStringWere(string field, string table, string depot)
+        {
+            InitializeConnexion();
+
+            List<string> list = new List<string>();
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT " + field + " FROM " + table + " where Depot = " + depot + " ORDER BY " + field + " ";
+
+                IDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    list.Add(dr[field].ToString());
+                }
+                dr.Dispose();
+            }
+            return list;
+        }
         public int SelectId(string table, string field, string refer)
         {
             InitializeConnexion();
@@ -180,14 +201,14 @@ namespace GalerieSoft.Data
             }
         }
 
-        public int Nouveau(string table)
+        public int Nouveau(string table, string depot)
         {
             int id = 0;
 
             InitializeConnexion();
             using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
             {
-                cmd.CommandText = "SELECT COUNT(*) as lastId FROM " + table;
+                cmd.CommandText = "SELECT COUNT(*) as lastId FROM " + table + " where Depot = " + depot + "";
 
                 IDataReader rd = cmd.ExecuteReader();
 
