@@ -20,11 +20,10 @@ create table tProduit
 	Code varchar(100) primary key,
 	Designation varchar(20) not null,
 	TypeProduit integer not null,
-	CategorieProduit integer not null,
+	Depot integer not null,
 	Qte_stock integer default(0),
 	Prix float not null,
-	Constraint fk_type foreign key (TypeProduit) references tTypeProduit(Id),
-	Constraint fk_categorie foreign key (CategorieProduit) references tCategorie(Id)
+	Constraint fk_type foreign key (TypeProduit) references tTypeProduit(Id)
 )
 GO
 create table tVente

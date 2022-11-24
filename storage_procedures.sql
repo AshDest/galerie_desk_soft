@@ -44,7 +44,7 @@ create procedure sp_merge_produit
 	@code varchar(100),
 	@designation VARCHAR(20),
 	@typeproduit integer,
-	@categorie integer,
+	@depot integer,
 	@prix float,
 	@action integer
 )
@@ -54,8 +54,8 @@ as
 if(@action = 1)
 begin
 	if not exists (select * from tProduit where Id = @id)
-		insert into tProduit (Code, Designation, TypeProduit, CategorieProduit, Prix) values (@code, @designation, @typeproduit, @categorie, @prix)
-	else update tProduit set Designation = @designation, TypeProduit = @typeproduit, CategorieProduit = @categorie, Prix = @prix where Id = @id
+		insert into tProduit (Code, Designation, TypeProduit, Depot, Prix) values (@code, @designation, @typeproduit, @depot, @prix)
+	else update tProduit set Designation = @designation, TypeProduit = @typeproduit, Depot = @depot, Prix = @prix where Id = @id
 end
 else if(@action = 2)
 begin

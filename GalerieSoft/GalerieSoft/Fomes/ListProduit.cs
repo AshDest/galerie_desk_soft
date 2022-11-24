@@ -14,14 +14,16 @@ namespace GalerieSoft.Fomes
 {
     public partial class ListProduit : MetroFramework.Forms.MetroForm
     {
-        public ListProduit()
+        string _depot;
+        public ListProduit(string depot)
         {
+            _depot = depot;
             InitializeComponent();
         }
 
         private void ListProduit_Load(object sender, EventArgs e)
         {
-            dataGrid.DataSource = Glossaire.Instance.LoadGrid(Constants.Views.V_LIST_PRODUITS, "Code");
+            dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Tables.PRODUITS, "Depot", _depot);
         }
 
         private void button1_Click(object sender, EventArgs e)

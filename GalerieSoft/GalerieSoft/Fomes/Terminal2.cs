@@ -1,6 +1,5 @@
 ﻿using GalerieSoft.Configs;
 using GalerieSoft.Data;
-using GalerieSoft.Fomes;
 using GalerieSoft.Models;
 using System;
 using System.Collections.Generic;
@@ -12,23 +11,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GalerieSoft
+namespace GalerieSoft.Fomes
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Terminal2 : MetroFramework.Forms.MetroForm
     {
         private string _codeProduit = null;
         private string _prixtotal = null;
         private bool _initCmbState = false;
         private ConnexionType connexionType;
         private Detailvente vente = null;
+
         string _depot;
-        public Form1(string depoy = null)
+        public Terminal2(string depoy = null)
         {
             _depot = depoy;
             InitializeComponent();
         }
 
-        private void paramètreToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Terminal2_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
+                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
+                _initCmbState = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Echec de Connexion a la Base de Données : " + ex.Message, "CONNECTION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -37,20 +51,6 @@ namespace GalerieSoft
         {
             TypeProduit fr = new TypeProduit();
             fr.ShowDialog();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
-                txtCodeVente.Text = "V00" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE).ToString();
-                _initCmbState = true;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Echec de Connexion a la Base de Données : " + ex.Message, "CONNECTION", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

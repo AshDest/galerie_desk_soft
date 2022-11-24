@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalerieSoft.Configs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace GalerieSoft.Fomes
 {
     public partial class FormAccueil : MetroFramework.Forms.MetroForm
     {
+        private ConnexionType connexionType;
         public FormAccueil()
         {
             InitializeComponent();
@@ -19,7 +21,40 @@ namespace GalerieSoft.Fomes
 
         private void FormAccueil_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Connection connexion = new Connection();
 
+                connexion.Server = "DESKTOP-OLAHFQB";
+                connexion.Database = "db_galerie";
+                connexion.User = "sa";
+                connexion.Password = "destinashuza";
+
+                ImplementeConnection.Instance.Initialise(connexion, connexionType);
+                ImplementeConnection.Instance.Con.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Echec de Connexion a la Base de Données : " + ex.Message, "CONNECTION", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 fr = new Form1("1");
+            fr.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Terminal2 fr = new Terminal2("2");
+            fr.Show();
+        }
+
+        private void typeDesProduitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TypeProduit fr = new TypeProduit();
+            fr.ShowDialog();
         }
     }
 }

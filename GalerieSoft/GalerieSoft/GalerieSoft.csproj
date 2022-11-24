@@ -105,6 +105,12 @@
     <Compile Include="Fomes\Produits.Designer.cs">
       <DependentUpon>Produits.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fomes\Terminal2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\Terminal2.Designer.cs">
+      <DependentUpon>Terminal2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fomes\TypeProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\Produits.resx">
       <DependentUpon>Produits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fomes\Terminal2.resx">
+      <DependentUpon>Terminal2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\TypeProduit.resx">
       <DependentUpon>TypeProduit.cs</DependentUpon>
