@@ -73,6 +73,7 @@ create procedure sp_merge_vente
 	--@prix float,
 	@totalpaie float,
 	@situation integer,
+	@depot integer,
 	@action integer
 )
 as
@@ -87,7 +88,7 @@ as
 if(@action = 1) -- Insert and update vente
 begin
 	if not exists (select * from tVente where Code = @code)
-		insert into tVente(Code, DateVente) values (@code, GETDATE())
+		insert into tVente(Code, DateVente, Depot) values (@code, GETDATE(), @depot)
 end
 else if(@action = 2) -- insert detailvente
 begin

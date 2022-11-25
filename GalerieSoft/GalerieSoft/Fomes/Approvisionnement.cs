@@ -18,9 +18,11 @@ namespace GalerieSoft.Fomes
         private string _codeProduit = null;
         private bool _initCmbState = false;
         private Approvisionnements appro = null;
+        string _depot;
 
-        public Approvisionnement()
+        public Approvisionnement(string depot)
         {
+            _depot = depot;
             InitializeComponent();
         }
 
@@ -28,7 +30,7 @@ namespace GalerieSoft.Fomes
         {
             txtDate.Format = DateTimePickerFormat.Custom;
             txtDate.CustomFormat = "yyyy-MM-dd";
-            cmbProduit.DataSource = Glossaire.Instance.LoadString("Designation", Constants.Tables.PRODUITS);
+            cmbProduit.DataSource = Glossaire.Instance.LoadStringWere("Designation", Constants.Tables.PRODUITS, _depot);
             dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LISTE_APPROVISIONNEMENT, "DateApprov", txtDate.Text);
             _initCmbState = true;
         }
@@ -38,6 +40,7 @@ namespace GalerieSoft.Fomes
             if (_initCmbState)
             {
                 _codeProduit = Glossaire.Instance.SelectString(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
+                txtCodeProduit.Text = Glossaire.Instance.SelectString(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
             }
             else
             {

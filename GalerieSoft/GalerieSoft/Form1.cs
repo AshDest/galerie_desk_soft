@@ -72,7 +72,7 @@ namespace GalerieSoft
 
         private void approvisionnementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Approvisionnement fr = new Approvisionnement();
+            Approvisionnement fr = new Approvisionnement(_depot);
             fr.ShowDialog();
         }
 
