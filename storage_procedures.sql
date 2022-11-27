@@ -80,11 +80,15 @@ as
 	declare @current_code varchar(100);
 	declare @current_total int;
 	declare @current_pu float;
+	declare @current_qte integer;
 	declare @Id_Detail integer;
+	declare @current_qte_vente integer;
 	select @current_code = Code from tVente where Code = @code;
 	select @current_total = Sum(Pt) from tDetailVente where CodeVente = @code;
 	select @Id_Detail = Id from tDetailVente where Produit = @produit;
 	select @current_pu = Prix from tProduit where Code = @produit;
+	select @current_qte = Qte_stock from tProduit where Code = @produit;
+	select @current_qte_vente = Quantite from tDetailVente where Id = @Id_Detail
 if(@action = 1) -- Insert and update vente
 begin
 	if not exists (select * from tVente where Code = @code)
@@ -95,11 +99,16 @@ begin
 	if not exists (select * from tDetailVente where Produit = @produit and CodeVente = @current_code)
 		insert into tDetailVente (CodeVente, Produit, Quantite, Pu, Pt) values (@current_code, @produit, @quantite, @current_pu, (@quantite * @current_pu));
 	update tVente set Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code) where Code = @current_code
+
+	update tProduit set Qte_stock = @current_qte - @quantite where Code = @produit
 end
 else if(@action = 3) -- update detail vente
 begin
 	update tDetailVente set Produit = @produit, Quantite = @quantite, Pu = @current_pu, Pt = (@quantite * @current_pu);
+
 	update tVente set Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code) where Code = @current_code
+
+	update tProduit set Qte_stock = (@current_qte + @current_qte_vente) - @quantite where Code = @produit
 end
 else if(@action = 4) -- set total price on tVente
 begin
@@ -137,6 +146,7 @@ create procedure sp_merge_approvisionnemen
 	@produit VARCHAR(100),
 	@quantite integer,
 	@prix float,
+	@depot integer,
 	@action integer
 )
 as
@@ -150,10 +160,10 @@ as
 if(@action = 1)
 begin
 	if not exists (select * from tApprovisionnement where Code = @current_code)
-		insert into tApprovisionnement (Code, DateApprov, Produit, Qte, Pu, Pt) values 
-		(@code, GETDATE(), @current_produit, @quantite, @prix, (@quantite * @prix))
+		insert into tApprovisionnement (Code, DateApprov, Produit, Qte, Pu, Pt, Depot) values 
+		(@code, GETDATE(), @current_produit, @quantite, @prix, (@quantite * @prix), @depot)
 	else update tApprovisionnement set Produit = @produit, Qte = @quantite, Pu=@prix, 
-	Pt = (@quantite * @prix) where Code = @current_code
+	Pt = (@quantite * @prix), Depot = @depot where Code = @current_code
 
 	update tProduit set Qte_stock = (@current_qte + @quantite) where Code = @current_produit;
 end

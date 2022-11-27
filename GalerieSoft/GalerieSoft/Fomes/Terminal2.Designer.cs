@@ -71,8 +71,6 @@
             this.produitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeProduitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categorieProduitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -399,8 +397,7 @@
             this.approvisionnementToolStripMenuItem,
             this.financeToolStripMenuItem,
             this.visualisationToolStripMenuItem,
-            this.paramètreToolStripMenuItem1,
-            this.settingsToolStripMenuItem});
+            this.paramètreToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1234, 25);
@@ -421,7 +418,7 @@
             // 
             this.quitterToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quitterToolStripMenuItem.Image")));
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -538,23 +535,6 @@
             this.categorieProduitToolStripMenuItem.Visible = false;
             this.categorieProduitToolStripMenuItem.Click += new System.EventHandler(this.categorieProduitToolStripMenuItem_Click);
             // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connexionToolStripMenuItem});
-            this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripMenuItem.Image")));
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // connexionToolStripMenuItem
-            // 
-            this.connexionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("connexionToolStripMenuItem.Image")));
-            this.connexionToolStripMenuItem.Name = "connexionToolStripMenuItem";
-            this.connexionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.connexionToolStripMenuItem.Text = "Connexion";
-            // 
             // Terminal2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,7 +607,5 @@
         private System.Windows.Forms.ToolStripMenuItem produitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem typeProduitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categorieProduitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem connexionToolStripMenuItem;
     }
 }

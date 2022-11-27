@@ -14,5 +14,6 @@ namespace GalerieSoft.Models
         public int Qte { get; set; }
         public float Pu { get; set; }
         public float Pt { get; set; }
+        public int Depot { get; set; }
     }
 }

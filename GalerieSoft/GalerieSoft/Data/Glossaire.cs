@@ -143,6 +143,27 @@ namespace GalerieSoft.Data
             return id;
         }
 
+        public int CurrentQte(string table, string field, string refer)
+        {
+            InitializeConnexion();
+
+            int qte = 0;
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT Qte_stock FROM " + table + " WHERE " + refer + " = '" + field + "'";
+                IDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    qte = Convert.ToInt32(dr["Qte_stock"].ToString());
+                }
+
+                dr.Dispose();
+            }
+            return qte;
+        }
+
         public string SelectTotalValue(string field)
         {
             InitializeConnexion();
@@ -276,6 +297,7 @@ namespace GalerieSoft.Data
                 SetParameter(cmd, "@produit", DbType.String, 50, ap.Produit);
                 SetParameter(cmd, "@quantite", DbType.String, 50, ap.Qte);
                 SetParameter(cmd, "@prix", DbType.String, 50, ap.Pu);
+                SetParameter(cmd, "@depot", DbType.Int32, 1, ap.Depot);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();
             }
@@ -295,6 +317,7 @@ namespace GalerieSoft.Data
                 SetParameter(cmd, "@quantite", DbType.Int32, 50, vt.Quantite);
                 SetParameter(cmd, "@totalpaie", DbType.Double, 50, vt.TotalPaie);
                 SetParameter(cmd, "@situation", DbType.String, 50, vt.Situation);
+                SetParameter(cmd, "@depot", DbType.Int32, 1, vt.Depot);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();
             }

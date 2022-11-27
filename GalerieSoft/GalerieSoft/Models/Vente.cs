@@ -16,5 +16,6 @@ namespace GalerieSoft.Models
         public float TotalPaie { get; set; }
         public float RestePaie { get; set; }
         public int Situation { get; set; }
+        public int Depot { get; set; }
     }
 }

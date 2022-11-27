@@ -22,6 +22,7 @@ namespace GalerieSoft
         private ConnexionType connexionType;
         private Detailvente vente = null;
         string _depot;
+        private int _currentQte = 0;
         public Form1(string depoy = null)
         {
             _depot = depoy;
@@ -92,13 +93,20 @@ namespace GalerieSoft
                         Produit = _codeProduit,
                         Quantite = txtQte.Value
                     };
-                    Glossaire.Instance.ActionVente(vente, 1);
-                    Glossaire.Instance.ActionVente(vente, 2);
-                    resetFields(1);
-                    MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
-                    _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
-                    txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                    if (_currentQte > txtQte.Value)
+                    {
+                        Glossaire.Instance.ActionVente(vente, 1);
+                        Glossaire.Instance.ActionVente(vente, 2);
+                        resetFields(1);
+                        MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
+                        _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                        txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                    }
+                    else
+                    {
+                        MessageBox.Show("La Quantité Saisie Supérieur au Stock", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
                 else
                 {
@@ -148,6 +156,7 @@ namespace GalerieSoft
             {
                 _codeProduit = Glossaire.Instance.SelectString(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
                 txtCode.Text = _codeProduit;
+                _currentQte = Glossaire.Instance.CurrentQte(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
             }
             else
             {

@@ -32,6 +32,7 @@ namespace GalerieSoft.Fomes
             txtDate.CustomFormat = "yyyy-MM-dd";
             cmbProduit.DataSource = Glossaire.Instance.LoadStringWere("Designation", Constants.Tables.PRODUITS, _depot);
             dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LISTE_APPROVISIONNEMENT, "DateApprov", txtDate.Text);
+            txtCode.Text = "AP00" + Glossaire.Instance.Nouveau(Constants.Tables.APPROVISIONNEMENT, _depot).ToString();
             _initCmbState = true;
         }
 
@@ -83,6 +84,7 @@ namespace GalerieSoft.Fomes
                         Produit = _codeProduit,
                         Qte = int.Parse(txtQte.Text),
                         Pu = float.Parse(txtPrix.Text),
+                        Depot = int.Parse(_depot)
                     };
                     Glossaire.Instance.Approvisionnement(appro, 1);
                     RestAllFiels();

@@ -51,6 +51,11 @@ namespace GalerieSoft.Fomes
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            savedata();
+        }
+
+        private void savedata()
+        {
             try
             {
                 if (IsNotEmpty(1))
@@ -123,6 +128,70 @@ namespace GalerieSoft.Fomes
             //{
             //    cmbCategorie.SelectedIndex = -1;
             //}
+        }
+
+        private void txtDesignation_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtDesignation.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Down:
+                        txtPrix.Focus();
+                        break;
+                    case Keys.Enter:
+                        savedata();
+                        break;
+                }
+            }
+        }
+
+        private void txtPrix_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrix.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Down:
+                        cmbType.Focus();
+                        break;
+                    case Keys.Up:
+                        txtDesignation.Focus();
+                        break;
+                    case Keys.Enter:
+                        savedata();
+                        break;
+                }
+            }
+        }
+
+        private void cmbType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cmbType.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Down:
+                        metroButton1.Focus();
+                        break;
+                    case Keys.Up:
+                        txtPrix.Focus();
+                        break;
+                    case Keys.Enter:
+                        savedata();
+                        break;
+                }
+            }
+        }
+
+        private void Produits_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    savedata();
+                    break;
+            }
         }
     }
 }

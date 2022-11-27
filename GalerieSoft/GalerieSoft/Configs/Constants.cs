@@ -12,7 +12,7 @@ namespace GalerieSoft.Configs
         {
             public const string TYPE_PRODUIT = "tTypeProduit";
             public const string CATEGORIE_PRODUIT = "tCategorie";
-            public const string APPROVISIONNEMENT = "tGarage";
+            public const string APPROVISIONNEMENT = "tApprovisionnement";
             public const string PRODUITS = "tProduit";
             public const string PAIEMENT = "tVehicule";
             public const string VENTE = "tVente";

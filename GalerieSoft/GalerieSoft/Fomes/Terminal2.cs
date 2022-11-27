@@ -22,6 +22,7 @@ namespace GalerieSoft.Fomes
         private Detailvente vente = null;
 
         string _depot;
+        private int _currentQte = 0;
         public Terminal2(string depoy = null)
         {
             _depot = depoy;
@@ -90,15 +91,24 @@ namespace GalerieSoft.Fomes
                         TotalPaie = 0,
                         Situation = 1,
                         Produit = _codeProduit,
-                        Quantite = txtQte.Value
+                        Quantite = txtQte.Value,
+                        Depot = int.Parse(_depot)
                     };
-                    Glossaire.Instance.ActionVente(vente, 1);
-                    Glossaire.Instance.ActionVente(vente, 2);
-                    resetFields(1);
-                    MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
-                    _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
-                    txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                    if(_currentQte > txtQte.Value)
+                    {
+                        Glossaire.Instance.ActionVente(vente, 1);
+                        Glossaire.Instance.ActionVente(vente, 2);
+                        resetFields(1);
+                        MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
+                        _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                        txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                    }
+                    else
+                    {
+                        MessageBox.Show("La Quantité Saisie Supérieur au Stock", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+
                 }
                 else
                 {
@@ -148,6 +158,7 @@ namespace GalerieSoft.Fomes
             {
                 _codeProduit = Glossaire.Instance.SelectString(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
                 txtCode.Text = _codeProduit;
+                _currentQte = Glossaire.Instance.CurrentQte(Constants.Tables.PRODUITS, cmbProduit.Text, "Designation");
             }
             else
             {
