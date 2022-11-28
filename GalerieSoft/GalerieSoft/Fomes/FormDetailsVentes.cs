@@ -1,5 +1,6 @@
 ﻿using GalerieSoft.Configs;
 using GalerieSoft.Data;
+using GalerieSoft.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace GalerieSoft.Fomes
         string _code;
         string _depot;
         private int _currentQte = 0;
+        private Detailvente vente = null;
+        private int Id_d_vente = 0;
         public FormDetailsVentes(string code, string depot)
         {
             _code = code;
@@ -38,6 +41,7 @@ namespace GalerieSoft.Fomes
             txtCode.Text = this.gridData.CurrentRow.Cells[0].Value.ToString();
             cmbProduit.Text = this.gridData.CurrentRow.Cells[1].Value.ToString();
             txtQte.Value = decimal.Parse(this.gridData.CurrentRow.Cells[2].Value.ToString());
+            Id_d_vente = int.Parse(this.gridData.CurrentRow.Cells[6].Value.ToString());
         }
 
         private void cmbProduit_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +69,59 @@ namespace GalerieSoft.Fomes
             else
             {
                 return false;
+            }
+        }
+        private void resetFields(int var)
+        {
+            if (var == 1)
+            {
+                txtCode.Text = "";
+                cmbProduit.Text = "";
+                txtQte.Value = 1;
+            }
+
+        }
+
+        private void btnPanier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsNotEmpty(1))
+                {
+                    vente = new Detailvente
+                    {
+                        Code = _code,
+                        NomClient = null,
+                        NumClient = null,
+                        TotalPaie = 0,
+                        Situation = 1,
+                        Produit = _codeProduit,
+                        Quantite = txtQte.Value,
+                        Depot = int.Parse(_depot),
+                        Id = Id_d_vente
+                        
+                    };
+                    if (_currentQte > txtQte.Value)
+                    {
+                        Glossaire.Instance.ActionVente(vente, 3);
+                        resetFields(1);
+                        MessageBox.Show("Enregistrement Reussi", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", _code);
+                        cmbProduit.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La Quantité Saisie Supérieur au Stock", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Certain champ du formulaire sont obligatoire", "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur s'est produite lors de l'Enregistrement : " + ex.Message, "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

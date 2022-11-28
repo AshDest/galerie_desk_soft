@@ -333,6 +333,7 @@ namespace GalerieSoft.Data
                 SetParameter(cmd, "@totalpaie", DbType.Double, 50, vt.TotalPaie);
                 SetParameter(cmd, "@situation", DbType.String, 50, vt.Situation);
                 SetParameter(cmd, "@depot", DbType.Int32, 1, vt.Depot);
+                SetParameter(cmd, "@id", DbType.Int32, 1, vt.Id);
                 SetParameter(cmd, "@action", DbType.Int32, 1, action);
                 cmd.ExecuteNonQuery();
             }

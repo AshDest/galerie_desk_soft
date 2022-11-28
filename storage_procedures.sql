@@ -74,6 +74,7 @@ create procedure sp_merge_vente
 	@totalpaie float,
 	@situation integer,
 	@depot integer,
+	@id integer,
 	@action integer
 )
 as
@@ -85,7 +86,7 @@ as
 	declare @current_qte_vente integer;
 	select @current_code = Code from tVente where Code = @code;
 	select @current_total = Sum(Pt) from tDetailVente where CodeVente = @code;
-	select @Id_Detail = Id from tDetailVente where Produit = @produit;
+	select @Id_Detail = Id from tDetailVente where Id = @id;
 	select @current_pu = Prix from tProduit where Code = @produit;
 	select @current_qte = Qte_stock from tProduit where Code = @produit;
 	select @current_qte_vente = Quantite from tDetailVente where Id = @Id_Detail
@@ -104,7 +105,7 @@ begin
 end
 else if(@action = 3) -- update detail vente
 begin
-	update tDetailVente set Produit = @produit, Quantite = @quantite, Pu = @current_pu, Pt = (@quantite * @current_pu);
+	update tDetailVente set Produit = @produit, Quantite = @quantite, Pu = @current_pu, Pt = (@quantite * @current_pu) where Id = @Id_Detail;
 
 	update tVente set Total = (select Sum(Pt) from tDetailVente where CodeVente= @current_code) where Code = @current_code
 
