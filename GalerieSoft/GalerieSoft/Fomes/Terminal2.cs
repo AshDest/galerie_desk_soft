@@ -177,5 +177,34 @@ namespace GalerieSoft.Fomes
             resetFields(2);
             cmbProduit.Focus();
         }
+
+        private void cmbProduit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCode.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Right:
+                        txtQte.Focus();
+                        break;
+                }
+            }
+        }
+
+        private void txtQte_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCode.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Right:
+                        btnPanier.Focus();
+                        break;
+                    case Keys.Left:
+                        cmbProduit.Focus();
+                        break;
+                }
+            }
+        }
     }
 }

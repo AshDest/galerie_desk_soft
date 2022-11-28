@@ -47,7 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtQte = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPanier = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbProduit = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -255,7 +255,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.txtQte);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnPanier);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbProduit);
             this.panel1.Controls.Add(this.label3);
@@ -292,22 +292,23 @@
             0,
             0,
             0});
+            this.txtQte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQte_KeyDown);
             // 
-            // button1
+            // btnPanier
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(991, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 60);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Ajouter au Panier";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPanier.BackColor = System.Drawing.Color.White;
+            this.btnPanier.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPanier.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnPanier.Image = ((System.Drawing.Image)(resources.GetObject("btnPanier.Image")));
+            this.btnPanier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPanier.Location = new System.Drawing.Point(991, 12);
+            this.btnPanier.Name = "btnPanier";
+            this.btnPanier.Size = new System.Drawing.Size(174, 60);
+            this.btnPanier.TabIndex = 15;
+            this.btnPanier.Text = "Ajouter au Panier";
+            this.btnPanier.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPanier.UseVisualStyleBackColor = false;
+            this.btnPanier.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -332,6 +333,7 @@
             this.cmbProduit.Size = new System.Drawing.Size(376, 25);
             this.cmbProduit.TabIndex = 1;
             this.cmbProduit.SelectedIndexChanged += new System.EventHandler(this.cmbProduit_SelectedIndexChanged);
+            this.cmbProduit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProduit_KeyDown);
             // 
             // label3
             // 
@@ -418,7 +420,7 @@
             // 
             this.quitterToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quitterToolStripMenuItem.Image")));
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -583,7 +585,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.NumericUpDown txtQte;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPanier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbProduit;
         private System.Windows.Forms.Label label3;
