@@ -222,6 +222,21 @@ namespace GalerieSoft.Data
             }
         }
 
+        public DataTable LoadGridWhereLike(string table, string field, string where, string like, string controls)
+        {
+            InitializeConnexion();
+
+            using (IDbCommand cmd = ImplementeConnection.Instance.Con.CreateCommand())
+            {
+                cmd.CommandText = "SELECT * FROM " + table + " WHERE " + field + " = '" + where + "' AND " + like + " LIKE '%" + controls + "%'";
+                DataTable dt = new DataTable();
+                adapter = new SqlDataAdapter((SqlCommand)cmd);
+                adapter.Fill(dt);
+
+                return dt;
+            }
+        }
+
         public int Nouveau(string table, string depot)
         {
             int id = 0;
