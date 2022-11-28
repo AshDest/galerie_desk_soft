@@ -100,5 +100,50 @@ namespace GalerieSoft.Fomes
                 MessageBox.Show("Une erreur s'est produite lors de l'Enregistrement : " + ex.Message, "SAVING MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cmbProduit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodeProduit.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Right:
+                        txtQte.Focus();
+                        break;
+                }
+            }
+        }
+
+        private void txtQte_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodeProduit.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Right:
+                        txtPrix.Focus();
+                        break;
+                    case Keys.Left:
+                        cmbProduit.Focus();
+                        break;
+                }
+            }
+        }
+
+        private void txtPrix_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodeProduit.Text) && !string.IsNullOrEmpty(txtPrix.Text))
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Right:
+                        btnSave.Focus();
+                        break;
+                    case Keys.Left:
+                        txtQte.Focus();
+                        break;
+                }
+            }
+        }
     }
 }
