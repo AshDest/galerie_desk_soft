@@ -39,6 +39,10 @@ namespace GalerieSoft.Fomes
                 dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_VENTE, "Depot", _depot);
                 txtSearch.Text = "";
             }
+            else
+            {
+                txtSearch.Focus();
+            }
 
         }
     }
