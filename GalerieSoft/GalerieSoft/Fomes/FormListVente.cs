@@ -47,7 +47,7 @@ namespace GalerieSoft.Fomes
         private void dataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             code = this.dataGrid.CurrentRow.Cells[0].Value.ToString();
-            FormDetailsVentes fr = new FormDetailsVentes(code);
+            FormDetailsVentes fr = new FormDetailsVentes(code, _depot);
             fr.ShowDialog();
         }
     }
