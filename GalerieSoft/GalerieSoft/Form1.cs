@@ -46,6 +46,7 @@ namespace GalerieSoft
             {
                 cmbProduit.DataSource = Glossaire.Instance.LoadStringWere("Designation", Constants.Tables.PRODUITS, _depot);
                 txtCodeVente.Text = "DP0100" + Glossaire.Instance.Nouveau(Constants.Tables.VENTE, _depot).ToString();
+                cmbProduit.Focus();
                 _initCmbState = true;
             }
             catch(Exception ex)
@@ -102,6 +103,7 @@ namespace GalerieSoft
                         gridData.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_DETAIL_VENTE, "CodeVente", txtCodeVente.Text);
                         _prixtotal = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
                         txtPrixTot.Text = Glossaire.Instance.SelectTotalValue(txtCodeVente.Text) + " FC";
+                        cmbProduit.Focus();
                     }
                     else
                     {
@@ -171,6 +173,7 @@ namespace GalerieSoft
                 fr.ShowDialog();
             }
             resetFields(2);
+            cmbProduit.Focus();
         }
     }
 }

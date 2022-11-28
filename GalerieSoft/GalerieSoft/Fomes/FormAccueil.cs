@@ -56,5 +56,38 @@ namespace GalerieSoft.Fomes
             TypeProduit fr = new TypeProduit();
             fr.ShowDialog();
         }
+
+        private void term1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    term2.Focus();
+                    break;
+            }
+        }
+
+        private void term2_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    term3.Focus();
+                    break;
+                case Keys.Left:
+                    term1.Focus();
+                    break;
+            }
+        }
+
+        private void term3_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    term2.Focus();
+                    break;
+            }
+        }
     }
 }
