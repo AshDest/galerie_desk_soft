@@ -124,21 +124,21 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "Total";
-            this.Column3.HeaderText = "Prix Total";
+            this.Column3.HeaderText = "Prix Total (FC)";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "TotalPaie";
-            this.Column5.HeaderText = "Montant  Paie";
+            this.Column5.HeaderText = "Montant  Paie (FC)";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.DataPropertyName = "RestePaie";
-            this.Column6.HeaderText = "Reste Paie";
+            this.Column6.HeaderText = "Reste Paie (FC)";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -148,8 +148,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 500);
             this.Controls.Add(this.dataGrid);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormListVente";
-            this.Text = "FormListVente";
+            this.Resizable = false;
+            this.Text = "Liste des Ventes";
             this.Load += new System.EventHandler(this.FormListVente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);

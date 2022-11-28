@@ -34,12 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terminal2));
             this.panel3 = new System.Windows.Forms.Panel();
             this.gridData = new MetroFramework.Controls.MetroGrid();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeVente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtCodeVente = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -71,6 +65,12 @@
             this.produitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeProduitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categorieProduitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeVente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -144,49 +144,6 @@
             this.gridData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gridData.Size = new System.Drawing.Size(1205, 276);
             this.gridData.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Produit";
-            this.Column1.HeaderText = "Num";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Designation";
-            this.Column2.HeaderText = "Designation";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Quantite";
-            this.Column5.HeaderText = "Quantite";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Pu";
-            this.Column3.HeaderText = "Prix unitaire";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Pt";
-            this.Column4.HeaderText = "Prix Total";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // CodeVente
-            // 
-            this.CodeVente.DataPropertyName = "CodeVente";
-            this.CodeVente.HeaderText = "Code Vente";
-            this.CodeVente.Name = "CodeVente";
-            this.CodeVente.ReadOnly = true;
-            this.CodeVente.Visible = false;
             // 
             // panel2
             // 
@@ -470,6 +427,7 @@
             this.listeVentesToolStripMenuItem.Name = "listeVentesToolStripMenuItem";
             this.listeVentesToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.listeVentesToolStripMenuItem.Text = "Liste Ventes";
+            this.listeVentesToolStripMenuItem.Click += new System.EventHandler(this.listeVentesToolStripMenuItem_Click);
             // 
             // listeApprovisionnementsToolStripMenuItem
             // 
@@ -537,6 +495,49 @@
             this.categorieProduitToolStripMenuItem.Visible = false;
             this.categorieProduitToolStripMenuItem.Click += new System.EventHandler(this.categorieProduitToolStripMenuItem_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Produit";
+            this.Column1.HeaderText = "Num";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Designation";
+            this.Column2.HeaderText = "Designation";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Quantite";
+            this.Column5.HeaderText = "Quantite";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Pu";
+            this.Column3.HeaderText = "Prix unitaire (FC)";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Pt";
+            this.Column4.HeaderText = "Prix Total (FC)";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // CodeVente
+            // 
+            this.CodeVente.DataPropertyName = "CodeVente";
+            this.CodeVente.HeaderText = "Code Vente";
+            this.CodeVente.Name = "CodeVente";
+            this.CodeVente.ReadOnly = true;
+            this.CodeVente.Visible = false;
+            // 
             // Terminal2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,12 +573,6 @@
 
         private System.Windows.Forms.Panel panel3;
         private MetroFramework.Controls.MetroGrid gridData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodeVente;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtCodeVente;
         private System.Windows.Forms.Button button2;
@@ -609,5 +604,11 @@
         private System.Windows.Forms.ToolStripMenuItem produitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem typeProduitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categorieProduitToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeVente;
     }
 }

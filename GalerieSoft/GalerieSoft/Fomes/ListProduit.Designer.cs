@@ -144,7 +144,7 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "Prix";
-            this.Column6.HeaderText = "Prix Unitaire de Vente";
+            this.Column6.HeaderText = "Prix Unitaire de Vente (FC)";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 

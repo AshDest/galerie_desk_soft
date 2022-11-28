@@ -92,7 +92,8 @@ namespace GalerieSoft
                         TotalPaie = 0,
                         Situation = 1,
                         Produit = _codeProduit,
-                        Quantite = txtQte.Value
+                        Quantite = txtQte.Value,
+                        Depot = int.Parse(_depot)
                     };
                     if (_currentQte > txtQte.Value)
                     {
@@ -203,6 +204,12 @@ namespace GalerieSoft
                         break;
                 }
             }
+        }
+
+        private void listeVentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormListVente fr = new FormListVente(_depot);
+            fr.ShowDialog();
         }
     }
 }

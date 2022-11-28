@@ -206,5 +206,11 @@ namespace GalerieSoft.Fomes
                 }
             }
         }
+
+        private void listeVentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormListVente fr = new FormListVente(_depot);
+            fr.ShowDialog();
+        }
     }
 }
