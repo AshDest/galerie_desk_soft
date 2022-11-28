@@ -87,6 +87,12 @@
     <Compile Include="Fomes\FormAccueil.Designer.cs">
       <DependentUpon>FormAccueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fomes\FormDetailsVentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fomes\FormDetailsVentes.Designer.cs">
+      <DependentUpon>FormDetailsVentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fomes\FormListVente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\FormAccueil.resx">
       <DependentUpon>FormAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fomes\FormDetailsVentes.resx">
+      <DependentUpon>FormDetailsVentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fomes\FormListVente.resx">
       <DependentUpon>FormListVente.cs</DependentUpon>

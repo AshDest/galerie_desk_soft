@@ -15,17 +15,16 @@ namespace GalerieSoft.Fomes
     public partial class FormListVente : MetroFramework.Forms.MetroForm
     {
         string _depot;
+        string code = null;
         public FormListVente(string depot)
         {
             _depot = depot;
             InitializeComponent();
         }
-
         private void FormListVente_Load(object sender, EventArgs e)
         {
             dataGrid.DataSource = Glossaire.Instance.LoadGridWhere(Constants.Views.V_LIST_VENTE, "Depot", _depot);          
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             ckd.Checked = false;
@@ -43,7 +42,13 @@ namespace GalerieSoft.Fomes
             {
                 txtSearch.Focus();
             }
+        }
 
+        private void dataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            code = this.dataGrid.CurrentRow.Cells[0].Value.ToString();
+            FormDetailsVentes fr = new FormDetailsVentes(code);
+            fr.ShowDialog();
         }
     }
 }
